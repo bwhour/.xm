@@ -12,7 +12,8 @@ alias ll='ls -AlthS'
 alias lc='ls -Altcr'
 #alias cat='cat'
 alias vi='vim'
-alias x='vi'       #edit
+alias x='vi'       
+#edit
 alias v='vi' 
 alias bashrc="vim ~/.newbashrc && source  ~/.newbashrc"
 alias ps="ps auxf"
