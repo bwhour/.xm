@@ -1,4 +1,4 @@
-" Turn on syntax highlighting
+" Turn on syntax highlighting  " https://www.cnblogs.com/oloroso/p/4670165.html
 syntax on
 
 " Security
