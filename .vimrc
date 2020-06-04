@@ -47,11 +47,6 @@ filetype plugin indent on    " 启用自动补全
 " 退出插入模式指定类型的文件自动保存
 au InsertLeave *.go,*.sh,*.php write
 
-————————————————
-原文作者：broqiang
-转自链接：https://learnku.com/articles/24924
-版权声明：著作权归作者所有。商业转载请联系作者获得授权，非商业转载请保留以上作者信息和原文链接。
-
 " Show file stats
 set ruler
 
@@ -147,3 +142,7 @@ let g:tagbar_width = 30
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autopreview = 1
 let g:tagbar_sort = 0
+
+" install vim-plug
+" git clone git clone https://github.com/junegunn/vim-plug.git
+" cp vim-plug/plug.vim ~/.vim/autoload
