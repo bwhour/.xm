@@ -1,4 +1,4 @@
-" Turn on syntax highlighting  " https://www.cnblogs.com/oloroso/p/4670165.html
+" Turn on syntax highlighting
 syntax on
 
 " Security
@@ -37,6 +37,7 @@ nmap <Leader>c "+yy
 nmap <Leader>v "+p
 
 " 开启实时搜索
+set hlsearch                " 开启高亮显示结果
 set incsearch
 " 搜索时大小写不敏感
 set ignorecase
@@ -46,11 +47,6 @@ filetype plugin indent on    " 启用自动补全
 
 " 退出插入模式指定类型的文件自动保存
 au InsertLeave *.go,*.sh,*.php write
-
-————————————————
-原文作者：broqiang
-转自链接：https://learnku.com/articles/24924
-版权声明：著作权归作者所有。商业转载请联系作者获得授权，非商业转载请保留以上作者信息和原文链接。
 
 " Show file stats
 set ruler
@@ -101,18 +97,28 @@ call plug#begin('~/.vim/plugged')
 
 " On-demand loading
 Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --go-completer'}  " ./install.py --all # 支持大多数语言
-  " 为啥ycm不支持gopls呢？？？？
-  let g:ycm_key_list_select_completion = ['', '']
-  let g:ycm_key_list_previous_completion = ['']
-  let g:ycm_key_invoke_completion = ''
-  let g:ycm_autoclose_preview_window_after_completion = 1
-  " 在屏幕的右边显示>>标识这样有错误（注意这个是ycm的功能，不是syntastic的功能，syntastic
-  " 貌似也有这功能，但是显示不出来。。。,需要用:Errors才能看到错误列表）
-  let g:ycm_show_diagnostics_ui = 1
-  let g:ycm_error_symbol = '>>'
-  let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-  " cp ~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/
-  map <LEADER>gd :YcmCompleter GoTo<CR>
+" 为啥ycm不支持gopls呢？？？？
+let g:ycm_key_list_select_completion = ['', '']
+let g:ycm_key_list_previous_completion = ['']
+let g:ycm_key_invoke_completion = ''
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_clangd_uses_ycmd_caching = 1
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'gopls',
+  \     'cmdline': ['gopls', '/opt/code/mygo/bin/gopls', '-rpc.trace'],
+  \     'filetypes': [ 'go' ],
+  \   },
+  \ ]
+let g:go_def_mode='/opt/code/mygo/bin/gopls'
+let g:go_info_mode='/opt/code/mygo/bin/gopls'
+" 在屏幕的右边显示>>标识这样有错误（注意这个是ycm的功能，不是syntastic的功能，syntastic
+" 貌似也有这功能，但是显示不出来。。。,需要用:Errors才能看到错误列表）
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_error_symbol = '>>'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" cp ~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/
+map <LEADER>gd :YcmCompleter GoTo<CR>
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 map <F7> :NERDTreeMirror<CR>
@@ -123,6 +129,8 @@ Plug 'fatih/vim-go', { 'tag': '*','do': ':GoUpdateBinaries' }
 
 Plug 'nsf/gocode', { 'tag': 'v.20170907', 'rtp': 'vim' }
 " Multiple Plug commands can be written in a single line using | separators
+imap <F6> <C-x><C-o>
+
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
@@ -136,14 +144,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
+
 Plug 'dgryski/vim-godef'
 let g:godef_split=3 """左右打开新窗口的时候
 let g:godef_same_file_in_same_window=1 """函数在同一个文件中时不需要打开新窗口
 
-" Initialize plugin system
-call plug#end()
-
+Plug 'majutsushi/tagbar', { 'do': 'cp -R ./plugin ~/.vim/' }
 let g:tagbar_width = 30
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autopreview = 1
 let g:tagbar_sort = 0
+" Initialize plugin system
+call plug#end()
