@@ -1,0 +1,21 @@
+1. macos:
+
+ssh-keygen -t rsa -b 4096 -C "juvemeen.xio@gmail.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add -K ~/.ssh/id_rsa
+
+pbcopy < ~/.ssh/id_rsa.pub
+
+
+2. linux
+ssh-keygen -t rsa -b 4096 -C "juvemeen.xio@gmail.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_rsa
+
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+sudo apt-get install xclip
