@@ -80,6 +80,9 @@ PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
 alias wget='wget -c'
 alias apt-get="sudo apt-get"
 alias update='sudo apt-get update && sudo apt-get upgrade'
-
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct
+export GO111MODULE=on
+export GOPROXY="https://goproxy.cn,direct"
 Usr=$(whoami)
 umask 0022
