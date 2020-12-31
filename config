@@ -1,0 +1,13 @@
+# gitlab
+Host gitlab.com
+HostName gitlab.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitlab
+User ming.xia@lightnet.io
+
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+User juvemeen.xio@gmail.com
