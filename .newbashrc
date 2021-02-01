@@ -76,6 +76,8 @@ mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 source ~/git-prompt.sh
 PS1='\[\033[35m\] `__git_ps1`\[\033[0m\] '   # bash function
 PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
+## fix  download crates error
+export CARGO_HTTP_MULTIPLEXING=false
 
 alias wget='wget -c'
 alias apt-get="sudo apt-get"
