@@ -75,7 +75,8 @@ mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 #export PS1=' $(whoami)($$)$(pwd)] '
 source ~/git-prompt.sh
 PS1='\[\033[35m\] `__git_ps1`\[\033[0m\] '   # bash function
-PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
+#PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
+PS1="$PS1"'\[\033[s\033[0;0H\033[1;47m\033[K\033[1;31m\t\033[0m\033[u\033[4;32m\]\!@\w\$ \[\033[00m\] '
 ## fix  download crates error
 export CARGO_HTTP_MULTIPLEXING=false
 

@@ -1,0 +1,40 @@
+#####very useful command 4 you
+## :w !sudo tee  %    &&  sudo !!
+
+alias ..='cd ..'
+alias c='clear'
+alias cs='cd;ls'
+alias mkdir='mkdir -pv'
+alias h='history'
+alias lt='ls -AlrtS'
+alias l='ls -AlhS'
+alias ll='ls -AlthS'
+alias lc='ls -Altcr'
+alias cat='cat -n'
+alias vi='vim'
+alias x='vi'       #edit
+alias v='view' 
+alias zshrc="vim ~/.newzshrc && source  ~/.newzshrc"
+alias ps="ps aux"
+alias psg="ps -A | grep -v grep | grep -i -e VSZ -e"
+#alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
+alias ps2='ps -ef | grep -v $$ | grep -i'
+alias ports='netstat -tulanp'
+alias cc='cd ~; ll'
+function killps()   # kill by process name
+{
+   pid=$(pgrep $1)
+   sudo kill -9 $pid
+}
+PS1="%!@%B%U %~%# %u%b"
+#function mygrep { grep -rnIi "$1" . --color; }
+mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
+export CARGO_HTTP_MULTIPLEXING=false
+alias gosrc='cd /Users/xiaoming/go'
+#export http_proxy=172.16.1.135:3128
+#export https_proxy=$http_proxy
+#export GO111MODULE=on
+export GOPROXY="https://goproxy.cn,direct"
+go env -w GO111MODULE=auto
+go env -w GOPROXY=https://goproxy.cn,direct
+umask 0022
