@@ -154,5 +154,9 @@ let g:tagbar_width = 30
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autopreview = 1
 let g:tagbar_sort = 0
+
+"for rust plug
+Plug 'rust-lang/rust.vim'
+
 " Initialize plugin system
 call plug#end()
