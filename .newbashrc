@@ -1,4 +1,4 @@
-#####very useful command 4 you
+
 ## :w !sudo tee  %    &&  sudo !!
 
 alias ..='cd ..'
@@ -22,7 +22,9 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias ps2='ps -ef | grep -v $$ | grep -i'
 alias ports='netstat -tulanp'
 alias mkdir="mkdir -p"
-
+alias home="cd $HOME"
+alias gosrc="cd ~/go/src"
+alias github="cd ~/go/src/github.com"
 alias tat='tmux attach -t'
 alias t='tmux'
 alias tn='tmux new-session -s'
@@ -76,7 +78,9 @@ mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 source ~/git-prompt.sh
 PS1='\[\033[35m\] `__git_ps1`\[\033[0m\] '   # bash function
 #PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
-PS1="$PS1"'\[\033[s\033[0;0H\033[1;47m\033[K\033[1;31m\t\033[0m\033[u\033[4;32m\]\!@\w\$ \[\033[00m\] '
+#PS1="$PS1"'\[\033[s\033[0;0H\033[1;47m\033[K\033[1;31m\t\033[0m\033[u\033[4;32m\]\!@\w\$\[\033[00m \] '
+export PS1="$PS1"'\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;47m\]\!@\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\]\$ '
+
 ## fix  download crates error
 export CARGO_HTTP_MULTIPLEXING=false
 
@@ -85,7 +89,7 @@ alias apt-get="sudo apt-get"
 alias update='sudo apt-get update && sudo apt-get upgrade'
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct
-export GO111MODULE=on
-export GOPROXY="https://goproxy.cn,direct"
+#export GO111MODULE=on
+#export GOPROXY="https://goproxy.cn,direct"
 Usr=$(whoami)
 umask 0022
