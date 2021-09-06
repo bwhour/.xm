@@ -1,4 +1,3 @@
-
 ## :w !sudo tee  %    &&  sudo !!
 
 alias ..='cd ..'
@@ -16,15 +15,16 @@ alias x='vi'
 #edit
 alias v='vi' 
 alias bashrc="vim ~/.newbashrc && source  ~/.newbashrc"
-alias ps="ps auxf"
-alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias ps="ps aux | grep -v grep | grep -i -e "
 #alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
-alias ps2='ps -ef | grep -v $$ | grep -i'
+alias ps2='ps -ef | grep -v $$ | grep -i '
 alias ports='netstat -tulanp'
 alias mkdir="mkdir -p"
 alias home="cd $HOME"
 alias gosrc="cd ~/go/src"
 alias github="cd ~/go/src/github.com"
+alias gitlab="cd ~/go/src/gitlab.com"
+alias evrynet="cd ~/go/src/github.com/Evrynetlabs/evrynet-node"
 alias tat='tmux attach -t'
 alias t='tmux'
 alias tn='tmux new-session -s'
@@ -89,6 +89,7 @@ alias apt-get="sudo apt-get"
 alias update='sudo apt-get update && sudo apt-get upgrade'
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct
+export GOPATH=$HOME/go
 #export GO111MODULE=on
 #export GOPROXY="https://goproxy.cn,direct"
 Usr=$(whoami)

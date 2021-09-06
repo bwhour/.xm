@@ -106,12 +106,12 @@ let g:ycm_clangd_uses_ycmd_caching = 1
 let g:ycm_language_server = [
   \   {
   \     'name': 'gopls',
-  \     'cmdline': ['gopls', '/opt/code/mygo/bin/gopls', '-rpc.trace'],
+  \     'cmdline': ['gopls', '~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/go/bin/gopls', '-rpc.trace'],
   \     'filetypes': [ 'go' ],
   \   },
   \ ]
-let g:go_def_mode='/opt/code/mygo/bin/gopls'
-let g:go_info_mode='/opt/code/mygo/bin/gopls'
+let g:go_def_mode='~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/go/bin/gopls'
+let g:go_info_mode='~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/go/bin/gopls'
 " 在屏幕的右边显示>>标识这样有错误（注意这个是ycm的功能，不是syntastic的功能，syntastic
 " 貌似也有这功能，但是显示不出来。。。,需要用:Errors才能看到错误列表）
 let g:ycm_show_diagnostics_ui = 1
