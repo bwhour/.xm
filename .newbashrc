@@ -1,4 +1,6 @@
+
 ## :w !sudo tee  %    &&  sudo !!
+export GOPATH=$HOME/go
 
 alias ..='cd ..'
 alias c='clear'
@@ -15,19 +17,22 @@ alias x='vi'
 #edit
 alias v='vi' 
 alias bashrc="vim ~/.newbashrc && source  ~/.newbashrc"
-alias ps="ps aux | grep -v grep | grep -i -e "
+alias ps="ps aux | grep -v grep | grep "
+alias psg="ps -i -e "
 #alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
-alias ps2='ps -ef | grep -v $$ | grep -i '
+alias ps2='ps -ef | grep -v $$ | grep -i'
 alias ports='netstat -tulanp'
 alias mkdir="mkdir -p"
 alias home="cd $HOME"
 alias gosrc="cd ~/go/src"
-alias github="cd ~/go/src/github.com"
-alias gitlab="cd ~/go/src/gitlab.com"
-alias evrynet="cd ~/go/src/github.com/Evrynetlabs/evrynet-node"
-alias tat='tmux attach -t'
+alias github="cd $GOPATH/src/github.com"
+alias gitlab="cd $GOPATH/src/gitlab.com"
+alias bwhour="cd $GOPATH/src/github.com/bwhour"
+#alias evry="cd ~/go/src/github.com/Evrynetlabs/evrynet-node"
+alias ta='tmux attach -t'
 alias t='tmux'
-alias tn='tmux new-session -s'
+alias tn='t new-session -s'
+alias ts='t switch -t'
 
 #power
 alias reboot='sudo /sbin/reboot'
@@ -83,14 +88,13 @@ export PS1="$PS1"'\[\e[32;47m\]\!@\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\]\$ '
 
 ## fix  download crates error
 export CARGO_HTTP_MULTIPLEXING=false
-
+export GOPATH=/Users/xiaoming/go
 alias wget='wget -c'
 alias apt-get="sudo apt-get"
 alias update='sudo apt-get update && sudo apt-get upgrade'
 go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct
-export GOPATH=$HOME/go
 #export GO111MODULE=on
 #export GOPROXY="https://goproxy.cn,direct"
+export GOPROXY=https://goproxy.io,direct
 Usr=$(whoami)
 umask 0022
