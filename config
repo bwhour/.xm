@@ -1,13 +1,19 @@
-# gitlab
-Host gitlab.com
-HostName gitlab.com
-PreferredAuthentications publickey
-IdentityFile ~/.ssh/id_rsa_gitlab
-User ming.xia@lightnet.io
-
-# github
 Host github.com
-HostName github.com
-PreferredAuthentications publickey
-IdentityFile ~/.ssh/id_rsa
-User juvemeen.xio@gmail.com
+  User bwhour
+  Hostname github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa
+
+Host gitlab.com
+  HostName altssh.gitlab.com
+  Port 443
+  User xxx.xxx
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa_gitlab
+
+Host p1
+ HostName psmp.amberainsider.com
+ Port 22
+ User xxx.xxx
+ ServerAliveInterval 300
+ ServerAliveCountMax 2
