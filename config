@@ -13,6 +13,8 @@ Host gitlab.com
 
 Host p1
  HostName psmp.amberainsider.com
+ StrictHostKeyChecking no
+ HostKeyAlias mytest
  Port 22
  User xxx.xxx
  ServerAliveInterval 300
