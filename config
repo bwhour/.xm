@@ -17,5 +17,13 @@ Host p1
  HostKeyAlias mytest
  Port 22
  User xxx.xxx
- ServerAliveInterval 300
- ServerAliveCountMax 2
+  ForwardAgent yes
+ TCPKeepAlive no
+ ControlMaster auto
+ ControlPath ~/.ssh/connection-%r@%h:%p
+ ControlPersist 4h
+ ServerAliveInterval 120
+ ServerAliveCountMax 5
+ Compression yes
+ ServerAliveInterval 120
+ ServerAliveCountMax 5
