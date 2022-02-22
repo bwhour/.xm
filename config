@@ -20,7 +20,7 @@ Host p1
  ForwardAgent yes
  TCPKeepAlive no
  ControlMaster auto
- ControlPath ~/.ssh/connection-%r@%h:%p
+ ControlPath ~/.ssh/control/%C
  ControlPersist 4h
  ServerAliveInterval 120
  ServerAliveCountMax 5
