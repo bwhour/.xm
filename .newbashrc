@@ -19,7 +19,7 @@ alias psg="ps -i -e "
 #alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
 alias ps2='ps -ef | grep -v $$ | grep -i'
 #netstat
-alias port= 'netstat -peanut'
+# alias port= 'netstat -peanut'
 alias ports='netstat -tulanp'
 #netcat -V localhost 22
 #nc -vz towel.blinkenlights.nl 80 
