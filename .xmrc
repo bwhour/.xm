@@ -13,7 +13,7 @@ alias vi='vim'
 alias x='vi'       
 #edit
 alias v='vi' 
-alias bashrc="vim ~/shconf/.newbashrc && source  ~/shconf/.newbashrc"
+alias bashrc="vim ~/.xm/.xmrc && source  ~/.xm/.xmrc"
 alias ps="ps aux | grep -v grep | grep "
 alias psg="ps -i -e "
 #alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
