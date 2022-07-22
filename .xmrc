@@ -1,7 +1,6 @@
-
 ## :w !sudo tee  %    &&  sudo !!
 export GOPATH=$HOME/go
-
+git config --global include.path "$HOME/.xm/.gitconfig"
 alias ..='cd ..'
 alias c='clear'
 alias cs='cd;ls'
@@ -13,9 +12,9 @@ alias ll='ls -AlthS'
 alias lc='ls -Altcr'
 #alias cat='cat'
 alias vi='vim'
-alias x='vi'       
+alias x='vi'
 #edit
-alias v='vi' 
+alias v='vi'
 alias bashrc="vim ~/.xm/.xmrc && source  ~/.xm/.xmrc"
 alias ps="ps aux | grep -v grep | grep "
 alias psg="ps -i -e "
@@ -56,18 +55,18 @@ alias ethtool='ethtool eth1'
 
 #memory
 alias meminfo='free -m -l -t'
- 
+
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
- 
+
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
- 
+
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
- 
+
 ## older system use /proc/cpuinfo ##
 ##alias cpuinfo='less /proc/cpuinfo' ##
 
@@ -95,6 +94,18 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 go env -w GO111MODULE=on
 #export GO111MODULE=on
 #export GOPROXY="https://goproxy.cn,direct"
-export GOPROXY=https://goproxy.io,direct
+#export GOPROXY=https://goproxy.io,direct
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+   git config --global core.autocrlf true
+elif [[ "$OSTYPE" == "msys" ]]; then
+      git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+   git config --global core.autocrlf input
+fi;
+
 Usr=$(whoami)
 umask 0022
