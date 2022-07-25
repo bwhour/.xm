@@ -1,4 +1,5 @@
 ## :w !sudo tee  %    &&  sudo !!
+git config --global include.path "$HOME/.xm/.gitconfig"
 alias ..='cd ..'
 alias c='clear'
 alias cs='cd;ls'
@@ -93,5 +94,16 @@ alias wget='wget -c'
 alias apt-get="sudo apt-get"
 alias update='sudo apt-get update && sudo apt-get upgrade'
 #go env -w GO111MODULE=on
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+   git config --global core.autocrlf true
+elif [[ "$OSTYPE" == "msys" ]]; then
+      git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+   git config --global core.autocrlf input
+fi;
 Usr=$(whoami)
 umask 0022
