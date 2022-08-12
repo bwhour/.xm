@@ -36,7 +36,7 @@ alias ta='tmux attach -t'
 alias t='tmux'
 alias tn='t new-session -s'
 alias ts='t switch -t'
-alias s= 'sduo systemctl'
+alias s= 'sudo systemctl'
 alias sdr='sudo systemctl daemon-reload'
 alias sr='sudo systemctl restart'
 
