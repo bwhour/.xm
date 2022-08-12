@@ -13,7 +13,6 @@ alias ll='ls -AlthS'
 alias lc='ls -Altcr'
 #alias cat='cat'
 alias vi='vim'
-alias x='vi'
 #edit
 alias v='vi'
 alias bashrc="vim ~/.xm/.xmrc && source  ~/.xm/.xmrc"
@@ -24,15 +23,18 @@ alias ps2='ps -ef | grep -v $$ | grep -i'
 alias ports='netstat -tulanp'
 alias mkdir="mkdir -p"
 alias home="cd $HOME"
+alias xm="cd $HOME"
 alias gosrc="cd ~/go/src"
 alias github="cd $GOPATH/src/github.com"
 alias gitlab="cd $GOPATH/src/gitlab.com"
 alias bwhour="cd $GOPATH/src/github.com/bwhour"
-#alias evry="cd ~/go/src/github.com/Evrynetlabs/evrynet-node"
 alias ta='tmux attach -t'
 alias t='tmux'
 alias tn='t new-session -s'
 alias ts='t switch -t'
+alias s= 'sduo systemctl'
+alias sdr='sudo systemctl daemon-reload'
+alias sr='sudo systemctl restart'
 
 #docker
 alias d='docker'
