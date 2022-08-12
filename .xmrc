@@ -34,6 +34,18 @@ alias t='tmux'
 alias tn='t new-session -s'
 alias ts='t switch -t'
 
+#docker
+alias d='docker'
+alias dp='docker ps'
+alias dl='docker logs -ft'
+alias dc='docker-compose'
+alias dcb='docker-compose build'
+alias dcr='docker-compose restart'
+
+#journalctl
+alias jl='journalctl -afu'
+alias jlp='journalctl -o json-pretty -afu'
+
 #power
 alias reboot='sudo /sbin/reboot'
 alias poweroff='sudo /sbin/poweroff'
@@ -52,7 +64,6 @@ alias vnstat='vnstat -i eth1'
 alias iftop='iftop -i eth1'
 alias tcpdump='tcpdump -i eth1'
 alias ethtool='ethtool eth1'
-
 
 #memory
 alias meminfo='free -m -l -t'
