@@ -27,6 +27,7 @@ alias ports='netstat -tulanp'
 #nc -vz towel.blinkenlights.nl 80 
 alias mkdir="mkdir -p"
 alias home="cd $HOME"
+alias xm="cd $HOME"
 alias gosrc="cd ~/go/src"
 alias github="cd $GOPATH/src/github.com"
 alias gitlab="cd $GOPATH/src/gitlab.com"
@@ -35,7 +36,9 @@ alias ta='tmux attach -t'
 alias t='tmux'
 alias tn='t new-session -s'
 alias ts='t switch -t'
-
+alias s= 'sduo systemctl'
+alias sdr='sudo systemctl daemon-reload'
+alias sr='sudo systemctl restart'
 
 #docker
 alias d='docker'
