@@ -38,6 +38,8 @@ alias sr='sudo systemctl restart'
 
 #docker
 alias d='docker'
+alias db='docker build'
+alias di='docker inspect'
 alias dp='docker ps'
 alias dl='docker logs -ft'
 alias dc='docker-compose'
