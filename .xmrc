@@ -36,6 +36,10 @@ alias ts='t switch -t'
 alias sdr='sudo systemctl daemon-reload'
 alias sr='sudo systemctl restart'
 
+#curl
+alias cll='curl -#LO'
+alias clx='curl -X'
+
 #docker
 alias d='docker'
 alias db='docker build'
