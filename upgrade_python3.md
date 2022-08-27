@@ -1,5 +1,5 @@
-Python upgrade in aws:
-
+## Python upgrade in aws:
+```
 sudo amazon-linux-extras install python3.8
 
 sudo yum install python3-devel
