@@ -28,6 +28,7 @@ alias ports='netstat -tulanp'
 alias mkdir="mkdir -p"
 alias home="cd $HOME"
 alias xm="cd $HOME"
+alais xmu='sudo yum update -y'
 alias gosrc="cd ~/go/src"
 alias github="cd $GOPATH/src/github.com"
 alias gitlab="cd $GOPATH/src/gitlab.com"
