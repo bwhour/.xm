@@ -114,7 +114,7 @@ export CARGO_HTTP_MULTIPLEXING=false
 export GOPATH=/Users/xiaoming/go
 alias wget='wget -c'
 alias apt-get="sudo apt-get"
-alias update='sudo apt-get update && sudo apt-get upgrade'
+alias update='apt-get update && apt-get upgrade'
 #go env -w GO111MODULE=on
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
    git config --global core.autocrlf input
