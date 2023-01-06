@@ -1,2 +1,1 @@
-export PATH="$HOME/.cargo/bin:$PATH"
-source ~/.newzshrc
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
