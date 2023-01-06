@@ -1,6 +1,3 @@
-source ~/.newbashrc
-export gover=go1.14.2
-export code=$home/go
-export GOROOT=/usr/local/go/$gover
-export GOPATH=$code
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$GOPATH
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin/arcanist/bin:~/.foundry/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin
+source /Users/will/.xmrc
