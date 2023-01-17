@@ -37,9 +37,14 @@ alias ta='tmux attach -t'
 alias t='tmux'
 alias tn='t new-session -s'
 alias ts='t switch -t'
-
 alias sdr='sudo systemctl daemon-reload'
 alias sr='sudo systemctl restart'
+#pbcopy
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy=’xsel — clipboard — input’
+#alias pbpaste=’xsel — clipboard — output’
+
 #curl
 alias cll='curl -#LO'
 alias clx='curl -X'
