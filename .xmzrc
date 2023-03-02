@@ -1,0 +1,136 @@
+## :w !sudo tee  %    &&  sudo !!
+git config --global include.path "$HOME/.xm/.gitconfig"
+alias ..='cd ..'
+alias c='clear'
+alias cs='cd;ls'
+alias mkdir='mkdir -pv'
+alias h='history'
+alias lt='ls -Alht'
+alias ltr='ls -alhtr'
+alias l='ls -AlhS'
+alias ll='ls -AlthS'
+alias lc='ls -Altcr'
+#alias cat='cat'
+alias vi='vim'
+alias x='vi'       
+#edit
+alias v='vi' 
+alias bashrc="vim ~/.xm/.xmrc && source  ~/.xm/.xmrc"
+alias ps="ps aux | grep -v grep | grep "
+alias psg="ps -i -e "
+#alias psg='ps -Helf | grep -v $$ | grep -i -e WCHAN -e'
+alias ps2='ps -ef | grep -v $$ | grep -i'
+#netstat
+# alias port= 'netstat -peanut'
+alias ports='netstat -tulanp'
+#netcat -V localhost 22
+#nc -vz towel.blinkenlights.nl 80 
+alias mkdir="mkdir -p"
+alias home="cd $HOME"
+alias xm="cd $HOME"
+alias xmu='sudo yum update -y'
+alias gosrc="cd ~/go/src"
+alias github="cd $GOPATH/src/github.com"
+alias gitlab="cd $GOPATH/src/gitlab.com"
+alias bwhour="cd $GOPATH/src/github.com/bwhour"
+alias ta='tmux attach -t'
+alias t='tmux'
+alias tn='t new-session -s'
+alias ts='t switch -t'
+alias sdr='sudo systemctl daemon-reload'
+alias sr='sudo systemctl restart'
+#pbcopy
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy=’xsel — clipboard — input’
+#alias pbpaste=’xsel — clipboard — output’
+
+#curl
+alias cll='curl -#LO'
+alias clx='curl -X'
+#docker
+alias d='docker'
+alias db='docker build'
+alias di='docker inspect'
+alias dp='docker ps'
+alias dl='docker logs -ft'
+alias dc='docker-compose'
+alias dcb='docker-compose build'
+alias dcr='docker-compose restart'
+
+#journalctl
+alias jl='journalctl -afu'
+alias jlp='journalctl -o json-pretty -afu'
+
+#power
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+
+#network
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
+
+alias dnstop='dnstop -l 5  eth1'
+alias vnstat='vnstat -i eth1'
+alias iftop='iftop -i eth1'
+alias tcpdump='tcpdump -i eth1'
+alias ethtool='ethtool eth1'
+
+#memory
+alias meminfo='free -m -l -t'
+ 
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+ 
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+ 
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+ 
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+
+function killps()   # kill by process name
+{
+   pid=$(pgrep $1)
+   sudo kill -9 $pid
+}
+
+#function mygrep { grep -rnIi "$1" . --color; }
+mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
+#export PS1=' $(whoami)($$)$(pwd)] '
+#show PS1 path
+#source ~/.xm/git-prompt.sh
+#PS1='\[\033[35m\] `__git_ps1`\[\033[0m\] '   # bash function
+#PS1="$PS1"'$(whoami)($$) \[\033[32m\]$(pwd)   ] \[\033[0m\] '
+#PS1="$PS1"'\[\033[s\033[0;0H\033[1;47m\033[K\033[1;31m\t\033[0m\033[u\033[4;32m\]\!@\w\$\[\033[00m \] '
+#export PS1="$PS1"'\[\e[32;47m\]\!@\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\]\$ '
+
+## fix  download crates error
+export CARGO_HTTP_MULTIPLEXING=false
+export GOPATH=$HOME/go
+alias wget='wget -c'
+alias apt-get="sudo apt-get"
+alias update='apt-get update && apt-get upgrade'
+#go env -w GO111MODULE=on
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+   git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+   git config --global core.autocrlf true
+elif [[ "$OSTYPE" == "msys" ]]; then
+      git config --global core.autocrlf input
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+   git config --global core.autocrlf input
+fi;
+Usr=$(whoami)
+umask 0022
