@@ -87,7 +87,7 @@ set laststatus=2
 set showmode
 set showcmd
 
-command! JsonF :execute '%!python2 -m json.tool' | :execute '%!python2 -c "import re,sys;sys.stdout.write(re.sub(r\"\\\u[0-9a-f]{4}\", lambda m:m.group()    .decode(\"unicode_escape\").encode(\"utf-8\"), sys.stdin.read()))"'
+command! JsonF :execute '%!python3 -m json.tool' | :execute '%!python2 -c "import re,sys;sys.stdout.write(re.sub(r\"\\\u[0-9a-f]{4}\", lambda m:m.group()    .decode(\"unicode_escape\").encode(\"utf-8\"), sys.stdin.read()))"'
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
