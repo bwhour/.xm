@@ -111,7 +111,6 @@ export PS1="$PS1"'\[\e[32;47m\]\!@\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\]\$ '
 
 ## fix  download crates error
 export CARGO_HTTP_MULTIPLEXING=false
-export GOPATH=/Users/xiaoming/go
 alias wget='wget -c'
 alias apt-get="sudo apt-get"
 alias update='apt-get update && apt-get upgrade'
