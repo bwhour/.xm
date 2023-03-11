@@ -1,6 +1,6 @@
 #####very useful command 4 you
 ## :w !sudo tee  %    &&  sudo !!
-
+export GOPATH=$HOME/go
 alias ..='cd ..'
 alias c='clear'
 alias cs='cd;ls'
@@ -30,7 +30,7 @@ PS1="%!@%B%U %~%# %u%b"
 #function mygrep { grep -rnIi "$1" . --color; }
 mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 export CARGO_HTTP_MULTIPLEXING=false
-alias gosrc='cd /Users/xiaoming/go'
+alias gosrc='cd $GOPATH'
 #export http_proxy=172.16.1.135:3128
 #export https_proxy=$http_proxy
 #export GO111MODULE=on
