@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -n "$PATH" ]; then
+  old_PATH=$PATH:; PATH=
+  while [ -n "$old_PATH" ]; do
+    x=${old_PATH%%:*}       # 获取最左边的条目
+    case $PATH: in
+      *:"$x":*) ;;          # 如果已经在 PATH 中，则忽略
+      *) PATH=$PATH$x:;;    # 否则，添加到 PATH 中
+    esac
+    old_PATH=${old_PATH#*:}  # 删除刚处理过的最左边条目
+  done
+  PATH=${PATH%:}            # 删除最后一个冒号
+fi
+export PATH
+

@@ -11,3 +11,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 #export MY_SETTING=1
 #[[ -e ~/.profile ]] && emulate sh -c 'source /Users/will/.xmrc'
 source /Users/will/.xmrc
+source /Users/will/exportPATH
