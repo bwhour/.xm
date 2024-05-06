@@ -50,6 +50,7 @@
     f = fetch
     fo = fetch origin
     fu = fetch upstream
+    fpr = "!f() { git fetch origin pull/$1/head:$2; }; f"
     #############
     fp = format-patch
     #############
@@ -148,7 +149,7 @@
     cln = clone
     #############
     sbi = submodule init
-	sbu = submodule update
+  	sbu = submodule update
     sbuir = submodule update --init --recursive
     #############
     ours = "!f() { git checkout --ours $@ && git add $@; }; f"
