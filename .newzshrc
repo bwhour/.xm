@@ -37,5 +37,5 @@ alias gosrc='cd $GOPATH'
 export GOPROXY="https://goproxy.cn,direct"
 go env -w GO111MODULE=auto
 go env -w GOPROXY=https://goproxy.cn,direct
-. ./z.sh
+source "${0:A:h}/z.sh"
 umask 0022
