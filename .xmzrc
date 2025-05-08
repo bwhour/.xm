@@ -132,5 +132,6 @@ elif [[ "$OSTYPE" == "msys" ]]; then
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
    git config --global core.autocrlf input
 fi;
+. ./z.sh
 Usr=$(whoami)
 umask 0022
