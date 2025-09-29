@@ -115,6 +115,7 @@ mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 #export PS1="$PS1"'\[\e[32;47m\]\!@\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\]\$ '
 
 ## fix  download crates error
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 export CARGO_HTTP_MULTIPLEXING=false
 export GOPATH=$HOME/go
 alias wget='wget -c'
