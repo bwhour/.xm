@@ -12,7 +12,7 @@ alias ll='ls -AlthS'
 alias lc='ls -Altcr'
 alias cat='cat -n'
 alias vi='vim'
-alias x='vi'       #edit
+alias x='vi'
 alias v='view' 
 alias zshrc="vim ~/.newzshrc && source  ~/.newzshrc"
 alias ps="ps aux"
@@ -27,7 +27,6 @@ function killps()   # kill by process name
    sudo kill -9 $pid
 }
 PS1="%!@%B%U %~%# %u%b"
-#function mygrep { grep -rnIi "$1" . --color; }
 mygrep () { grep -rnIi --color "$1" "${2:-.}"; }
 export CARGO_HTTP_MULTIPLEXING=false
 alias gosrc='cd $GOPATH'
