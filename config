@@ -25,4 +25,3 @@ Host p1
  ServerAliveInterval 120
  ServerAliveCountMax 5
  Compression yes
-
