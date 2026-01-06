@@ -3,14 +3,13 @@
 if [ -n "$PATH" ]; then
   old_PATH=$PATH:; PATH=
   while [ -n "$old_PATH" ]; do
-    x=${old_PATH%%:*}       # 获取最左边的条目
-    case $PATH: in
-      *:"$x":*) ;;          # 如果已经在 PATH 中，则忽略
-      *) PATH=$PATH$x:;;    # 否则，添加到 PATH 中
+    x=${old_PATH%%:*}       # Get the leftmost entry
+    case ":$PATH:" in
+      *:"$x":*) ;;          # Already in PATH, skip
+      *) PATH=$PATH$x:;;    # Add to PATH
     esac
-    old_PATH=${old_PATH#*:}  # 删除刚处理过的最左边条目
+    old_PATH=${old_PATH#*:}  # Remove the processed leftmost entry
   done
-  PATH=${PATH%:}            # 删除最后一个冒号
+  PATH=${PATH%:}            # Remove trailing colon
 fi
 export PATH
-
