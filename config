@@ -12,7 +12,7 @@ Host gitlab.com
   IdentityFile ~/.ssh/id_rsa_gitlab
 
 Host p1
- HostName psmp.amberainsider.com
+ HostName xxx.io
  StrictHostKeyChecking no
  HostKeyAlias mytest
  Port 22
