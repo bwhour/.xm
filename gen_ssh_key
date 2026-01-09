@@ -1,21 +1,57 @@
-1. macos:
+#!/bin/bash
+# SSH Key Generation Script
+# This script helps generate SSH keys for macOS and Linux
+# Usage: ./gen_ssh_key [email] [key_name]
 
-ssh-keygen -t rsa -b 4096 -C "juvemeen.xio@gmail.com"
+set -euo pipefail
 
+# Default values
+EMAIL="${1:-your-email@example.com}"
+KEY_NAME="${2:-id_rsa}"
+KEY_PATH="$HOME/.ssh/$KEY_NAME"
+
+# Detect OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS="macos"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    OS="linux"
+else
+    echo "Error: Unsupported OS: $OSTYPE" >&2
+    exit 1
+fi
+
+echo "Generating SSH key for $OS..."
+echo "Email: $EMAIL"
+echo "Key path: $KEY_PATH"
+
+# Generate SSH key
+ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f "$KEY_PATH" -N ""
+
+# Start ssh-agent
 eval "$(ssh-agent -s)"
 
-ssh-add -K ~/.ssh/id_rsa
+# Add key to ssh-agent
+if [[ "$OS" == "macos" ]]; then
+    ssh-add -K "$KEY_PATH"
+    # Copy public key to clipboard (macOS)
+    pbcopy < "$KEY_PATH.pub"
+    echo "Public key copied to clipboard (macOS)"
+elif [[ "$OS" == "linux" ]]; then
+    ssh-add "$KEY_PATH"
+    # Check if xclip is installed
+    if command -v xclip >/dev/null 2>&1; then
+        xclip -sel clip < "$KEY_PATH.pub"
+        echo "Public key copied to clipboard (Linux)"
+    else
+        echo "Warning: xclip not found. Install with: sudo apt-get install xclip"
+        echo "Public key saved to: $KEY_PATH.pub"
+        echo "---"
+        cat "$KEY_PATH.pub"
+        echo "---"
+    fi
+fi
 
-pbcopy < ~/.ssh/id_rsa.pub
-
-
-2. linux
-ssh-keygen -t rsa -b 4096 -C "juvemeen.xio@gmail.com"
-
-eval "$(ssh-agent -s)"
-
-ssh-add ~/.ssh/id_rsa
-
-xclip -sel clip < ~/.ssh/id_rsa.pub
-
-sudo apt-get install xclip
+echo ""
+echo "SSH key generated successfully!"
+echo "Public key location: $KEY_PATH.pub"
+echo "Add this public key to your Git hosting service (GitHub/GitLab/etc.)"
