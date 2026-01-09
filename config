@@ -7,16 +7,23 @@ Host github.com
 Host gitlab.com
   HostName altssh.gitlab.com
   Port 443
-  User xxx.xxx
+  # TODO: Replace with your GitLab username
+  User your-gitlab-username
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa_gitlab
 
 Host p1
  HostName psmp.amberainsider.com
+ # SECURITY WARNING: StrictHostKeyChecking no disables host key verification
+ # This makes you vulnerable to MITM attacks. Use only on trusted networks.
+ # Consider using: StrictHostKeyChecking accept-new (for first connection) or yes (strict)
  StrictHostKeyChecking no
+ # HostKeyAlias allows using a custom alias for host key verification
+ # Replace 'mytest' with a meaningful alias if needed
  HostKeyAlias mytest
  Port 22
- User xxx.xxx
+ # TODO: Replace with your server username
+ User your-server-username
  ForwardAgent yes
  TCPKeepAlive no
  ControlMaster auto
