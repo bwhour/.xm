@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    
-    
-    
+set -euo pipefail
+
+VIM_PLUG_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+VIM_PLUG_PATH="$HOME/.vim/autoload/plug.vim"
+
+if ! curl -fL "$VIM_PLUG_URL" --create-dirs -o "$VIM_PLUG_PATH"; then
+  echo "Error: Failed to download vim-plug" >&2
+  exit 1
+fi
+
+echo "vim-plug installed to $VIM_PLUG_PATH"
+
 # install youcompleteme for supported language
 # https://github.com/ycm-core/YouCompleteMe#macos
