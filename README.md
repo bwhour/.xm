@@ -1,7 +1,7 @@
 ### shconf
-some convient bash configuration
+Convenient Bash configuration.
 
-## download these files directly into $HOME directory
-## add  `source .newbashrc` into file .bashrc
+## Download these files directly into your $HOME directory
+## Add `source .newbashrc` to your .bashrc
 
-## the `config` file is used for ~/.ssh/config
+## The `config` file is used for ~/.ssh/config
