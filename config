@@ -1,5 +1,5 @@
 Host github.com
-  User bwhour
+  User git
   Hostname github.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa
