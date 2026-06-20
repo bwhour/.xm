@@ -38,8 +38,8 @@ $SUDO_CMD yum -y install git go gcc llvm clang || {
     exit 1
 }
 
-# Install docker-compose
-DOCKER_COMPOSE_VERSION="1.29.2"
+# Install docker-compose (v2)
+DOCKER_COMPOSE_VERSION="2.24.7"
 DOCKER_COMPOSE_URL="https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)"
 DOCKER_COMPOSE_PATH="/usr/local/bin/docker-compose"
 

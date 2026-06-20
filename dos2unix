@@ -1,12 +1,22 @@
-#! /bin/sh
+#!/bin/bash
+set -euo pipefail
 
-for x
-do
-    echo "Converting $x"
-    tr -d '\015' < "$x" > "tmp.$x"
-    mv "tmp.$x" "$x"
+if [ "$#" -eq 0 ]; then
+  echo "Usage: $0 <files...>" >&2
+  exit 1
+fi
+
+for x in "$@"; do
+  if [ ! -f "$x" ]; then
+    echo "Skip: $x not found" >&2
+    continue
+  fi
+
+  dir=$(dirname "$x")
+  base=$(basename "$x")
+  tmp_file=$(mktemp "${dir}/.${base}.XXXXXX")
+
+  tr -d '\015' < "$x" > "$tmp_file"
+  mv "$tmp_file" "$x"
+  echo "Converted $x"
 done
-
-
-# detail link as following
-# https://github.com/bwhour?tab=repositories
