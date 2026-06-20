@@ -1,0 +1,73 @@
+*:not(svg):not(path):not(img):not(video):not(canvas) {
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "PingFang SC", "Hiragino Sans GB",
+                 "Noto Sans SC", "Microsoft YaHei",
+                 sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+
+  /* 唯一增加的补丁：防止你强制全局字体后，网页里的图标（如搜索放大镜、菜单栏）变成乱码方块 */
+  [class*="icon" i], [class*="fa-" i], [class*="fas" i], [class*="material" i], i {
+    font-family: inherit !important;
+  }
+
+  html {
+    font-size: 18px !important;
+  }
+
+  /* ---------- 2. Typography Weights & Line-height ---------- */
+  /* 避免给 span、a 全局加行高导致网页按钮和导航栏错位撑破，精准针对长文本 */
+  p, li, td, th, blockquote, article {
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 标题：保持你的极高对比度审美 */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800 !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 避免破坏布局元素 */
+  div { font-weight: inherit !important; }
+  span, a, label { font-weight: 600 !important; }
+
+  /* 代码块：保持等宽 */
+  code, pre, kbd, samp {
+    font-family: "JetBrainsMono Nerd Font", monospace !important;
+    font-weight: 600 !important;
+  }
+
+  /* ---------- 3. Platform Specific Tweaks ---------- */
+
+  /* Platform: X (Twitter) */
+  [data-testid="tweetText"],
+  [data-testid="tweetText"] * {
+    font-weight: 700 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Platform: Zhihu */
+  .RichContent-inner,
+  .RichContent-inner * {
+    font-weight: 600 !important;
+  }
+
+  /* Platform: Medium */
+  article,
+  article * {
+    font-weight: 600 !important;
+  }
+
+  /* Platform: Reddit */
+  [data-testid="post-content"],
+  [data-testid="post-content"] * {
+    font-weight: 600 !important; /* 同理，修正 650 */
+  }
+
+  /* ---------- 4. De-emphasize UI noise ---------- */
+  nav, aside, footer, .meta, .subtext {
+    font-weight: 400 !important;
+    opacity: 0.8 !important;
+  }
